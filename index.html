@@ -1,133 +1,455 @@
-<!DOCTYPE html>
-<html>
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>[PLACEHOLDER: Project Title]</title>
+  
+  <!-- Meta Tags based on your project -->
+  <title>Dexora: Open-source VLA for High-DoF Bimanual Dexterity</title>
+  <meta name="title" content="Dexora: Open-source VLA for High-DoF Bimanual Dexterity">
+  <meta name="description" content="Introducing Dexora: the first open-source VLA system for high-DoF dual-arm, dual-hand manipulation, leveraging hybrid teleoperation pipelines for efficient data collection and training.">
+  <meta name="keywords" content="Embodied AI, Vision-Language-Action, VLA, Dual-Arm, Dual-Hand, Dexterous Manipulation">
+  <meta name="author" content="Dexora Team">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  
+  <!-- Social Media Meta Tags (You can fill these out) -->
+  <meta property="og:title" content="Dexora: Open-source VLA for High-DoF Bimanual Dexterity">
+  <meta property="og:description" content="Dexora is an open-source VLA platform for high-DoF dual-arm, dual-hand dexterous manipulation with robust Sim2Real capabilities.">
+  <meta property="og:image" content="assets/img/toutu.gif"> <!-- Main image for preview -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="assets/img/toutu.gif">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.png">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
-
-  <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.svg">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
-
+  <!-- Custom CSS for Template -->
   <style>
-    .placeholder-text {
-      background-color: #ffeb3b;
-      color: #d32f2f;
-      padding: 2px 4px;
-      border-radius: 3px;
+    :root {
+      --primary-color: #3273dc; /* Bulma's default blue */
+      --text-color: #363636;
+      --background-color: #ffffff;
+      --light-background-color: #f5f5f5;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+    .publication-title {
+      font-weight: 800;
+      font-size: 2.5rem;
+    }
+    .publication-authors {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+    }
+    .publication-links {
+      margin-top: 1.5rem;
+    }
+    .publication-links .link-block {
+      margin: 0.5rem;
+    }
+    .footer {
+      background-color: var(--light-background-color);
+    }
+    .bibtex-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    /* Custom style for your banner */
+    .realmirror-banner {
+      background-size: cover;
+      background-position: center center;
+      color: white;
+    }
+    .realmirror-banner .hero-body {
+      background-color: rgba(0, 0, 0, 0.55); /* Dark overlay for text readability */
+    }
+    .realmirror-banner .title {
+      color: white;
+      font-size: 4rem;
+      font-weight: 800;
+    }
+    .realmirror-banner .subtitle {
+      color: #f5f5f5;
+      font-weight: 500;
+    }
+    .realmirror-banner .button.is-white.is-outlined {
+      border-color: white;
+      color: white;
       font-weight: bold;
     }
-    .tbd-author {
-      background-color: #e3f2fd;
-      color: #1976d2;
-      padding: 2px 4px;
-      border-radius: 3px;
-      font-weight: bold;
+    .realmirror-banner .button.is-white.is-outlined:hover {
+      background: white;
+      color: black;
     }
+    .feature-icon {
+        font-size: 3rem;
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+    }
+    .section-title {
+        margin-bottom: 3rem;
+    }
+    /*
+    * (修改后) 让视频容器超过其父容器宽度并保持居中
+    */
+    .publication-video {
+        /* 1. 设置您希望的宽度，可以超过100% */
+        width: 120%; 
+        max-width: 120%; /* 确保最大宽度与宽度一致 */
+
+        /* 2. 使用 transform 技巧进行精确居中 */
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* 确保 video 标签本身填满其新的、更大的容器 */
+    .publication-video video {
+        width: 100%;
+        height: auto; /* 保持视频的原始宽高比 */
+        display: block; /* 移除 video 标签可能存在的底部额外空间 */
+    }
+    .result-image-container {
+        padding: 1rem;
+    }
+    /* MODIFIED: CSS for centering oversized images */
+    .result-image {
+        display: block;
+        position: relative;
+        left: 50%;
+        
+        border-radius: 8px;
+        border: 1px solid #e0e0e0;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        width: 150%;
+        max-width: 150%;
+        
+        /* The transform property now handles centering */
+        transform: translateX(-50%);
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    /* MODIFIED: Hover effect combines centering and animation */
+    .result-image:hover {
+        /* We must include translateX(-50%) to keep it centered during the hover animation */
+        transform: translateX(-50%) translateY(-10px) scale(1.02);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+    }
+    .realmirror-banner .button.is-white.is-outlined:focus {
+    background-color: transparent; /* 背景恢复透明 */
+    color: white;                 /* 文字恢复白色 */
+    box-shadow: none;             /* 可选：移除 Bulma 框架默认的蓝色焦点轮廓 */
+    }
+
+    /* 
+    (可选，但推荐) 为 :active 状态添加样式
+    这将在用户按住鼠标左键的瞬间提供一个轻微的视觉反馈
+    */
+    .realmirror-banner .button.is-white.is-outlined:active {
+    background-color: rgba(255, 255, 255, 0.15); /* 点击瞬间背景有轻微变化 */
+    transform: translateY(1px); /* 点击瞬间有轻微下沉效果 */
+    }
+    .dot-dash {
+    position: relative;
+    text-align: center;
+    font-size: 55px;
+    line-height: 0;
+    color: #3c88e7;
+    margin: 20px 0 40px;
+    display: block; }
+    .dot-dash:before, .dot-dash:after {
+        content: "";
+        width: 80px;
+        height: 1px;
+        background: #ffffff;
+        position: relative;
+        display: inline-block;
+        top: -2px;
+        margin-right: 10px; }
+    .dot-dash:after {
+        margin-right: 0px;
+        margin-left: 10px; }
+    .dot-dash.dark:before, .dot-dash.dark:after {
+        background: #6a6a6a; }
+    .rounded-video {
+        border-radius: 25px;
+        }
+    .home-slider--anchor {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 125px;
+    text-align: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+    -webkit-align-items: flex-end;
+    -ms-flex-align: end;
+    align-items: flex-end; }
+    .home-slider--anchor span {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        color: #3c88e7;
+        background: #f4f5f9;
+        height: 60px;
+        width: 60px;
+        border-radius: 50px;
+        margin: 0 auto;
+        cursor: pointer;
+        position: relative;
+        z-index: 1;
+        font-size: 22px; }
+    .home-slider--anchor:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50px;
+        width: 50%;
+        height: 500px;
+        background: #fff;
+        -webkit-transform: skew(0deg, 8deg);
+        transform: skew(0deg, 8deg);
+        z-index: 0; }
+    .home-slider--anchor:after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 50px;
+        width: 50%;
+        height: 500px;
+        background: #fff;
+        -webkit-transform: skew(0deg, -8deg);
+        transform: skew(0deg, -8deg);
+        z-index: 0; }
+
+    /* START: 新增的图片悬浮效果CSS */
+    .interactive-image {
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+    .interactive-image:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+    }
+    /* END: 新增的图片悬浮效果CSS */
   </style>
+  
 </head>
 <body>
 
+<main id="main-content">
 
-<section class="hero">
+<!-- Section 1: Your Original Header (Recreated with Bulma) -->
+<section class="hero is-fullheight realmirror-banner" style="background-image: url('assets/img/toutu.gif')">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h2 class="subtitle is-4" style="font-size: 1.9rem; white-space: nowrap;">Dexora: Open-source Vision-Language-Action for Dual-Arm, Dual-Hand High-DoF Manipulation</h2>
+      <h1 class="title is-1" style="font-size: 6.2rem;">DEXORA</h1>
+      <span class="dot-dash">.</span>
+      <div class="content has-text-justified" style="max-width: 900px; margin: 1rem auto; font-size: 1.2rem;">
+        <p>
+          We introduce Dexora, the first open-source VLA system that natively targets dual-arm, dual-hand high-DoF manipulation. Leveraging a hybrid teleoperation pipeline and a comprehensive dataset, Dexora is trained to handle both basic and dexterous tasks with remarkable performance. Our approach unifies dual-arm coordination and fine finger control, opening the path for universal controllers across varying embodiments.
+        </p>
+      </div>
+      <div class="publication-links">
+        <span class="link-block">
+          <a href="#" class="button is-white is-outlined is-rounded is-medium">
+            <span class="icon"><i class="ai ai-arxiv"></i></span>
+            <span>arXiv</span>
+          </a>
+        </span>
+        <!-- 这是修改后的代码 -->
+        <span class="link-block">
+        <a href="#" class="button is-white is-outlined is-rounded is-medium">
+            <span class="icon"><i class="fas fa-dice-d20"></i></span>
+            <span>Asset</span>
+        </a>
+        </span>
+        <span class="link-block">
+          <a href="https://github.com/terminators2025" class="button is-white is-outlined is-rounded is-medium">
+            <span class="icon"><i class="fab fa-github"></i></span>
+            <span>Code</span>
+          </a>
+        </span>
+      </div>
+    </div>
+    <div class="home-slider--anchor">
+        <span>
+            <img src="assets/img/head.png" alt="Head Icon" class="anchor-icon">
+        </span>
+    </div>
+  </div>
+</section>
+
+<!-- Section 2: Your "Four Elements" Section (White background) -->
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline is-centered">
+      <div class="column is-one-quarter">
+        <div class="is-flex is-flex-direction-column has-text-centered" style="height: 100%;">
+            <div class="feature-icon"><i class="fa fa-circle-nodes" aria-hidden="true"></i></div>
+            <h3 class="title is-4">E2E VLA Simulation</h3>
+            <p>We build an efficient, low-cost data collection, model training, and model inference system that enables end-to-end VLA research without requiring a real robot.</p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="is-flex is-flex-direction-column has-text-centered" style="height: 100%;">
+            <div class="feature-icon"><i class="fa fa-trophy" aria-hidden="true"></i></div>
+            <h3 class="title is-4">VLA Benchmark</h3>
+            <p>We propose a dedicated VLA benchmark for humanoid robots that facilitates model evolution and fair comparison through extensive experiments and automated evaluation.</p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="is-flex is-flex-direction-column has-text-centered" style="height: 100%;">
+            <div class="feature-icon"><i class="fa fa-robot" aria-hidden="true"></i></div>
+            <h3 class="title is-4">Sim2Real Zero-Shot</h3>
+            <p>We demonstrate the feasibility of zero-shot Sim2Real by integrating generative models and 3DGS to reconstruct realistic environments and robot models.</p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="is-flex is-flex-direction-column has-text-centered" style="height: 100%;">
+            <div class="feature-icon"><i class="fa fa-users" aria-hidden="true"></i></div>
+            <h3 class="title is-4">Open Source</h3>
+            <p>Our platform's capabilities will be fully open sourced, and we will provide a detailed sim2real solution to accelerate full stack research in the VLA field.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Display Video (Light grey background) -->
+<section class="hero is-small is-light">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title is-3 has-text-centered">Display Video</h2>
+        <div class="columns is-centered">
+          <div class="column is-three-quarters">
+            <div class="publication-video">
+              <video controls muted loop preload="metadata" style="border-radius: 8px;">
+                <source src="assets/moive/demo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+<!-- End Display Video -->
+
+<!-- Section for Main Contributions Image (White background) -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column">
+        <h3 class="title is-3 has-text-centered">Dexora overview</h3>
+        <div class="result-image-container">
+          <img src="assets/img/teaser.JPG" alt="Main Contributions" class="result-image"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- START: New Section for Scenario Assets -->
+<section class="section hero is-light">
+    <div class="container">
+      <h3 class="title is-3 has-text-centered">Teleoperation System</h3>
+      <!-- First Row: 3 videos -->
+      <div class="columns is-centered">
+        <div class="column is-one-third">
+          <figure class="image">
+            <!-- MODIFIED: Replaced image with video -->
+            <video controls muted loop preload="metadata" class="interactive-image" style="width: 150%; height: auto;">
+              <source src="assets\moive\telepreation\robot.mp4" type="video/mp4">
+              您的浏览器不支持视频标签。
+            </video>
+          </figure>
+        </div>
+        <div class="column is-one-third">
+          <figure class="image">
+            <!-- MODIFIED: Replaced image with video -->
+            <video controls muted loop preload="metadata" class="interactive-image" style="width: 150%; height: auto;">
+              <source src="assets\moive\telepreation\human.mp4" type="video/mp4">
+              您的浏览器不支持视频标签。
+            </video>
+          </figure>
+        </div>
+        <div class="column is-one-third">
+          <figure class="image">
+            <!-- MODIFIED: Replaced image with video -->
+            <video controls muted loop preload="metadata" class="interactive-image" style="width: 150%; height: auto;">
+              <source src="assets\moive\telepreation\sim.mp4" type="video/mp4">
+              您的浏览器不支持视频标签。
+            </video>
+          </figure>
+        </div>
+      </div>
+</section>
+
+
+<!-- Section for Dataset Videos (Light grey background) -->
+<section class="section hero is-light">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title"><span class="placeholder-text">[PLACEHOLDER: Project Title]</span></h1>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="#"><span class="tbd-author">TBD</span></a><sup>1</sup>,</span>
-            <span class="author-block">
-              <a href="#"><span class="tbd-author">TBD</span></a><sup>2</sup>,</span>
-            <span class="author-block">
-              <a href="#"><span class="tbd-author">TBD</span></a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="#"><span class="tbd-author">TBD</span></a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="#"><span class="tbd-author">TBD</span></a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="#"><span class="tbd-author">TBD</span></a><sup>1,2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="#"><span class="tbd-author">TBD</span></a><sup>2</sup>
-            </span>
-          </div>
-
-          <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup><span class="placeholder-text">[PLACEHOLDER: Institution 1]</span>,</span>
-            <span class="author-block"><sup>2</sup><span class="placeholder-text">[PLACEHOLDER: Institution 2]</span></span>
-          </div>
-
-          <div class="column has-text-centered">
-            <div class="publication-links">
-              <!-- PDF Link. -->
-              <span class="link-block">
-                <a href="#"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-              </span>
-              <span class="link-block">
-                <a href="#"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-              <!-- Video Link. -->
-              <span class="link-block">
-                <a href="#"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
-                  <span>Video</span>
-                </a>
-              </span>
-              <!-- Code Link. -->
-              <span class="link-block">
-                <a href="#"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
-                  </a>
-              </span>
-              <!-- Dataset Link. -->
-              <span class="link-block">
-                <a href="#"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
-                  <span>Data</span>
-                  </a>
+        <div class="column">
+          <h3 class="title is-3 has-text-centered">Dataset</h3>
+          <!-- Two videos side by side -->
+          <div class="columns is-centered">
+            <div class="column is-half">
+              <div class="box" style="background-color: #f5f5f5; border-radius: 8px; padding: 1rem; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+                <figure class="image" style="flex: 1; display: flex; align-items: center; justify-content: center;">
+                  <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 4px; max-height: 300px;">
+                    <source src="assets\moive\dataset\sim.mp4" type="video/mp4">
+                    您的浏览器不支持视频标签。
+                  </video>
+                </figure>
+                <p class="has-text-centered" style="margin-top: 1rem; font-weight: 600; padding: 0.5rem 0;">Simulation</p>
+              </div>
             </div>
-
+            <div class="column is-half">
+              <div class="box" style="background-color: #f5f5f5; border-radius: 8px; padding: 1rem; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+                <figure class="image" style="flex: 1; display: flex; align-items: center; justify-content: center;">
+                  <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 4px; max-height: 300px;">
+                    <source src="assets\moive\dataset\real.mp4" type="video/mp4">
+                    您的浏览器不支持视频标签。
+                  </video>
+                </figure>
+                <p class="has-text-centered" style="margin-top: 1rem; font-weight: 600; padding: 0.5rem 0;">Real World</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -135,267 +457,319 @@
   </div>
 </section>
 
-<section class="hero teaser">
+<!-- Section for Method Image (White background) -->
+<section class="section">
   <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4"
-                type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        <span class="placeholder-text">[PLACEHOLDER: Project Name]</span> <span class="placeholder-text">[PLACEHOLDER: Description]</span>
-      </h2>
+    <div class="columns is-centered">
+      <div class="column">
+        <h3 class="title is-3 has-text-centered">Method</h3>
+        <div class="result-image-container">
+          <img src="assets/img/method.JPG" alt="Main Contributions" class="result-image"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- START: Basic Tasks Demonstration -->
+<section class="section hero is-light">
+    <div class="container">
+        <h3 class="title is-3 has-text-centered">Basic Tasks Demonstration</h3>
+        
+        <!-- Pick and Place Section -->
+        <h4 class="title is-4 has-text-centered" style="margin-top: 2rem;">Pick and Place</h4>
+        <div class="columns is-centered is-multiline">
+            <div class="column is-one-fifth">
+                <div class="box" style="background-color: #f5f5f5; border-radius: 8px; padding: 1rem; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+                    <figure class="image" style="flex: 1; display: flex; align-items: center; justify-content: center;">
+                        <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 4px; max-height: 200px;">
+                            <source src="assets\moive\basic_tasks\PlaceAppleOneHand.mp4" type="video/mp4">
+                            您的浏览器不支持视频标签。
+                        </video>
+                    </figure>
+                </div>
+            </div>
+            <div class="column is-one-fifth">
+                <div class="box" style="background-color: #f5f5f5; border-radius: 8px; padding: 1rem; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+                    <figure class="image" style="flex: 1; display: flex; align-items: center; justify-content: center;">
+                        <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 4px; max-height: 200px;">
+                            <source src="assets\moive\basic_tasks\PlaceBowlOneHand.mp4" type="video/mp4">
+                            您的浏览器不支持视频标签。
+                        </video>
+                    </figure>
+                </div>
+            </div>
+            <div class="column is-one-fifth">
+                <div class="box" style="background-color: #f5f5f5; border-radius: 8px; padding: 1rem; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+                    <figure class="image" style="flex: 1; display: flex; align-items: center; justify-content: center;">
+                        <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 4px; max-height: 200px;">
+                            <source src="assets\moive\basic_tasks\PlaceEggsTwoHands.mp4" type="video/mp4">
+                            您的浏览器不支持视频标签。
+                        </video>
+                    </figure>
+                </div>
+            </div>
+            <div class="column is-one-fifth">
+                <div class="box" style="background-color: #f5f5f5; border-radius: 8px; padding: 1rem; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+                    <figure class="image" style="flex: 1; display: flex; align-items: center; justify-content: center;">
+                        <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 4px; max-height: 200px;">
+                            <source src="assets\moive\basic_tasks\lift_basket_twohand.mp4" type="video/mp4">
+                            您的浏览器不支持视频标签。
+                        </video>
+                    </figure>
+                </div>
+            </div>
+            <div class="column is-one-fifth">
+                <div class="box" style="background-color: #f5f5f5; border-radius: 8px; padding: 1rem; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+                    <figure class="image" style="flex: 1; display: flex; align-items: center; justify-content: center;">
+                        <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 4px; max-height: 200px;">
+                            <source src="assets\moive\basic_tasks\TransferBlocksRightPlate.mp4" type="video/mp4">
+                            您的浏览器不支持视频标签。
+                        </video>
+                    </figure>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Assemble/Disassemble Section -->
+        <h4 class="title is-4 has-text-centered" style="margin-top: 3rem;">Assemble/Disassemble</h4>
+        <div class="columns is-centered is-multiline">
+            <div class="column is-one-fifth">
+                <div class="box" style="background-color: #f5f5f5; border-radius: 8px; padding: 1rem; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+                    <figure class="image" style="flex: 1; display: flex; align-items: center; justify-content: center;">
+                        <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 4px; max-height: 200px;">
+                            <source src="assets\moive\basic_tasks\InsertRingOneHand.mp4" type="video/mp4">
+                            您的浏览器不支持视频标签。
+                        </video>
+                    </figure>
+                </div>
+            </div>
+            <div class="column is-one-fifth">
+                <div class="box" style="background-color: #f5f5f5; border-radius: 8px; padding: 1rem; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+                    <figure class="image" style="flex: 1; display: flex; align-items: center; justify-content: center;">
+                        <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 4px; max-height: 200px;">
+                            <source src="assets\moive\basic_tasks\Unimanual removal of ring from peg.mp4" type="video/mp4">
+                            您的浏览器不支持视频标签。
+                        </video>
+                    </figure>
+                </div>
+            </div>
+            <div class="column is-one-fifth">
+                <div class="box" style="background-color: #f5f5f5; border-radius: 8px; padding: 1rem; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+                    <figure class="image" style="flex: 1; display: flex; align-items: center; justify-content: center;">
+                        <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 4px; max-height: 200px;">
+                            <source src="assets\moive\basic_tasks\place_kettle_on_base_onehand.mp4" type="video/mp4">
+                            您的浏览器不支持视频标签。
+                        </video>
+                    </figure>
+                </div>
+            </div>
+            <div class="column is-one-fifth">
+                <div class="box" style="background-color: #f5f5f5; border-radius: 8px; padding: 1rem; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+                    <figure class="image" style="flex: 1; display: flex; align-items: center; justify-content: center;">
+                        <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 4px; max-height: 200px;">
+                            <source src="assets\moive\basic_tasks\uncap_pencil.mp4" type="video/mp4">
+                            您的浏览器不支持视频标签。
+                        </video>
+                    </figure>
+                </div>
+            </div>
+            <div class="column is-one-fifth">
+                <div class="box" style="background-color: #f5f5f5; border-radius: 8px; padding: 1rem; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+                    <figure class="image" style="flex: 1; display: flex; align-items: center; justify-content: center;">
+                        <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 4px; max-height: 200px;">
+                            <source src="assets\moive\basic_tasks\SplitBasinTwoHands.mp4" type="video/mp4">
+                            您的浏览器不支持视频标签。
+                        </video>
+                    </figure>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Articulated Object Section -->
+        <h4 class="title is-4 has-text-centered" style="margin-top: 3rem;">Articulated Object</h4>
+        <div class="columns is-centered is-multiline">
+            <div class="column is-one-fifth">
+                <div class="box" style="background-color: #f5f5f5; border-radius: 8px; padding: 1rem; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+                    <figure class="image" style="flex: 1; display: flex; align-items: center; justify-content: center;">
+                        <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 4px; max-height: 200px;">
+                            <source src="assets\moive\basic_tasks\OpenCabinetDoor.mp4" type="video/mp4">
+                            您的浏览器不支持视频标签。
+                        </video>
+                    </figure>
+                </div>
+            </div>
+            <div class="column is-one-fifth">
+                <div class="box" style="background-color: #f5f5f5; border-radius: 8px; padding: 1rem; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+                    <figure class="image" style="flex: 1; display: flex; align-items: center; justify-content: center;">
+                        <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 4px; max-height: 200px;">
+                            <source src="assets\moive\basic_tasks\open_laptop.mp4" type="video/mp4">
+                            您的浏览器不支持视频标签。
+                        </video>
+                    </figure>
+                </div>
+            </div>
+            <!-- Empty columns for better alignment -->
+            <div class="column is-one-fifth"></div>
+            <div class="column is-one-fifth"></div>
+            <div class="column is-one-fifth"></div>
+        </div>
+    </div>
+</section>
+
+<!-- Section for Remote Operation Example Image (Light grey background) -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column">
+          <h3 class="title is-3 has-text-centered">Remote Operation Example</h3>
+          <div class="result-image-container">
+            <img src="assets/img/yaocao.gif" alt="Pipeline Overview" class="result-image"/>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 
-<section class="hero is-light is-small">
+<!-- START: New Section for Scenario Assets -->
+<section class="section hero is-light">
+    <div class="container">
+      <h3 class="title is-3 has-text-centered">Inference Examples</h3>
+      <!-- First Row: 3 images -->
+      <div class="columns is-centered">
+        <div class="column is-one-third">
+          <figure class="image">
+            <!-- MODIFIED: Added class and removed inline styles -->
+            <img src="assets/img/1_1.gif" alt="Scenario asset 1" class="interactive-image">
+          </figure>
+        </div>
+        <div class="column is-one-third">
+          <figure class="image">
+            <!-- MODIFIED: Added class and removed inline styles -->
+            <img src="assets/img/2_1.gif" alt="Scenario asset 2" class="interactive-image">
+          </figure>
+        </div>
+        <div class="column is-one-third">
+          <figure class="image">
+            <!-- MODIFIED: Added class and removed inline styles -->
+            <img src="assets/img/3_1.gif" alt="Scenario asset 3" class="interactive-image">
+          </figure>
+        </div>
+      </div>
+      <!-- Second Row: 2 images -->
+      <div class="columns is-centered">
+        <div class="column is-one-third">
+          <figure class="image">
+            <!-- MODIFIED: Added class and removed inline styles -->
+            <img src="assets/img/4_1.gif" alt="Operational example 1" class="interactive-image">
+          </figure>
+        </div>
+        <div class="column is-one-third">
+          <figure class="image">
+            <!-- MODIFIED: Added class and removed inline styles -->
+            <img src="assets/img/5_1.gif" alt="Operational example 2" class="interactive-image">
+          </figure>
+        </div>
+      </div>
+    </div>
+</section>
+<!-- END: New Section for Scenario Assets -->
+
+<!-- START: New Section for Sim2Real Zero-Shot -->
+<section class="hero is-small">
+    <div class="container">
+      <h3 class="title is-3 has-text-centered">Sim2Real Zero-Shot</h3>
+      <div class="sim2real-gallery" style="display: flex; justify-content: center; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
+        <!-- Image 1 -->
+        <div class="image-container">
+          <!-- MODIFIED: Added class and removed conflicting inline styles -->
+          <img src="assets/img/shanghaizhan.gif" alt="Sim2Real example 1" class="interactive-image" style="height: 480px; width: auto;">
+        </div>
+        <!-- Image 2 -->
+        <div class="image-container">
+          <!-- MODIFIED: Added class and removed conflicting inline styles -->
+          <img src="assets/img/pull_ball_1.gif" alt="Sim2Real example 2" class="interactive-image" style="height: 480px; width: auto;">
+        </div>
+        <!-- Image 3 -->
+        <div class="image-container">
+          <!-- MODIFIED: Added class and removed conflicting inline styles -->
+          <img src="assets/img/pull_ball_2.gif" alt="Sim2Real example 3" class="interactive-image" style="height: 480px; width: auto;">
+        </div>
+      </div>
+    </div>
+</section>
+<!-- END: New Section for Sim2Real Zero-Shot -->
+
+<!-- Paper poster section (White background) -->
+<section class="section hero is-light">
   <div class="hero-body">
     <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/steve.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/chair-tp.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-shiba">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/shiba.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-fullbody">
-          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/fullbody.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-blueshirt">
-          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/blueshirt.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-mask">
-          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/mask.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-coffee">
-          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/coffee.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-toby">
-          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/toby2.mp4"
-                    type="video/mp4">
-          </video>
+      <h2 class="title has-text-centered">Paper</h2>
+      <div class="columns is-centered">
+        <div class="column is-full">
+          <iframe src="assets/ICRA26_0209_MS.pdf#zoom=160" width="100%" height="550" style="border: 1px solid #dbdbdb; border-radius: 8px;">
+          </iframe>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            <span class="placeholder-text">[PLACEHOLDER: Abstract paragraph 1 - Description of the method and its capabilities]</span>
-          </p>
-          <p>
-            <span class="placeholder-text">[PLACEHOLDER: Abstract paragraph 2 - Technical approach and methodology]</span>
-          </p>
-          <p>
-            <span class="placeholder-text">[PLACEHOLDER: Abstract paragraph 3 - Results and evaluation details]</span>
-          </p>
-        </div>
+<!-- BibTex citation section (Light grey background) -->
+<section class="section is-light" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <div class="bibtex-header">
+        <h2 class="title">BibTeX</h2>
+        <button class="button" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
+          <span class="icon"><i class="fas fa-copy"></i></span>
+          <span>Copy</span>
+        </button>
       </div>
+      <pre id="bibtex-code" style="border-radius: 8px;"><code>
+        @article{tai2025realmirror,
+        title={RealMirror: A Comprehensive, Open-Source Vision-Language-Action Platform for Embodied AI},
+        author={*},
+        journal={arXiv preprint arXiv:2509.14687},
+        year={2025}
+        }
+      </code></pre>
     </div>
-    <!--/ Abstract. -->
-
-    <!-- Paper video. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
-    <!--/ Paper video. -->
-  </div>
 </section>
+<!--End BibTex citation -->
 
+</main>
 
-<section class="section">
-  <div class="container is-max-desktop">
-
-    <div class="columns is-centered">
-
-      <!-- Visual Effects. -->
-      <div class="column">
-        <div class="content">
-          <h2 class="title is-3">Visual Effects</h2>
-          <p>
-            <span class="placeholder-text">[PLACEHOLDER: Visual effects description]</span>
-          </p>
-          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/dollyzoom-stacked.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-      <!--/ Visual Effects. -->
-
-      <!-- Matting. -->
-      <div class="column">
-        <h2 class="title is-3">Matting</h2>
-        <div class="columns is-centered">
-          <div class="column content">
-            <p>
-              <span class="placeholder-text">[PLACEHOLDER: Matting description]</span>
-            </p>
-            <video id="matting-video" controls playsinline height="100%">
-              <source src="./static/videos/matting.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-
-        </div>
-      </div>
-    </div>
-    <!--/ Matting. -->
-
-    <!-- Animation. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Animation</h2>
-
-        <!-- Interpolating. -->
-        <h3 class="title is-4">Interpolating states</h3>
-        <div class="content has-text-justified">
-          <p>
-            <span class="placeholder-text">[PLACEHOLDER: Animation interpolation description]</span>
-          </p>
-        </div>
-        <div class="columns is-vcentered interpolation-panel">
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_start.jpg"
-                 class="interpolation-image"
-                 alt="Interpolate start reference image."/>
-            <p>Start Frame</p>
-          </div>
-          <div class="column interpolation-video-column">
-            <div id="interpolation-image-wrapper">
-              Loading...
-            </div>
-            <input class="slider is-fullwidth is-large is-info"
-                   id="interpolation-slider"
-                   step="1" min="0" max="100" value="0" type="range">
-          </div>
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_end.jpg"
-                 class="interpolation-image"
-                 alt="Interpolation end reference image."/>
-            <p class="is-bold">End Frame</p>
-          </div>
-        </div>
-        <br/>
-        <!--/ Interpolating. -->
-
-        <!-- Re-rendering. -->
-        <h3 class="title is-4">Re-rendering the input video</h3>
-        <div class="content has-text-justified">
-          <p>
-            <span class="placeholder-text">[PLACEHOLDER: Re-rendering description]</span>
-          </p>
-        </div>
-        <div class="content has-text-centered">
-          <video id="replay-video"
-                 controls
-                 muted
-                 preload
-                 playsinline
-                 width="75%">
-            <source src="./static/videos/replay.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <!--/ Re-rendering. -->
-
-      </div>
-    </div>
-    <!--/ Animation. -->
-
-
-    <!-- Concurrent Work. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Related Links</h2>
-
-        <div class="content has-text-justified">
-          <p>
-            <span class="placeholder-text">[PLACEHOLDER: Related work introduction]</span>
-          </p>
-          <p>
-            <span class="placeholder-text">[PLACEHOLDER: Related work reference 1]</span>
-          </p>
-          <p>
-            <span class="placeholder-text">[PLACEHOLDER: Related work reference 2]</span>
-          </p>
-          <p>
-            <span class="placeholder-text">[PLACEHOLDER: Related work reference 3]</span>
-          </p>
-          <p>
-            <span class="placeholder-text">[PLACEHOLDER: Additional references and survey links]</span>
-          </p>
-        </div>
-      </div>
-    </div>
-    <!--/ Concurrent Work. -->
-
-  </div>
-</section>
-
-
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code><span class="placeholder-text">[PLACEHOLDER: BibTeX citation]</span></code></pre>
-  </div>
-</section>
-
-
+<!-- Footer -->
 <footer class="footer">
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-8">
-        <div class="content">
+        <div class="content has-text-centered">
           <p>
-            This website template is borrowed from <a href="https://github.com/nerfies/nerfies.github.io">nerfies</a>.
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener noreferrer">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank" rel="noopener noreferrer">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
         </div>
       </div>
     </div>
   </div>
 </footer>
+
+<script>
+  // BibTeX copy function
+  function copyBibTeX() {
+    const bibtexCode = document.getElementById('bibtex-code').textContent;
+    navigator.clipboard.writeText(bibtexCode).then(function() {
+      alert('BibTeX copied to clipboard!');
+    }, function(err) {
+      alert('Failed to copy BibTeX.');
+    });
+  }
+</script>
 
 </body>
 </html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Meta Tags based on your project -->
+  <title>Dexora: Open-source VLA for High-DoF Bimanual Dexterity</title>
+  <meta name="title" content="Dexora: Open-source VLA for High-DoF Bimanual Dexterity">
+  <meta name="description" content="Introducing Dexora: the first open-source VLA system for high-DoF dual-arm, dual-hand manipulation, leveraging hybrid teleoperation pipelines for efficient data collection and training.">
+  <meta name="keywords" content="Embodied AI, Vision-Language-Action, VLA, Dual-Arm, Dual-Hand, Dexterous Manipulation">
+  <meta name="author" content="Dexora Team">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  
+  <!-- Social Media Meta Tags (You can fill these out) -->
+  <meta property="og:title" content="Dexora: Open-source VLA for High-DoF Bimanual Dexterity">
+  <meta property="og:description" content="Dexora is an open-source VLA platform for high-DoF dual-arm, dual-hand dexterous manipulation with robust Sim2Real capabilities.">
+  <meta property="og:image" content="assets/img/toutu.gif"> <!-- Main image for preview -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="assets/img/toutu.gif">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.png">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS for Template -->
+  <style>
+    :root {
+      --primary-color: #3273dc; /* Bulma's default blue */
+      --text-color: #363636;
+      --background-color: #ffffff;
+      --light-background-color: #f5f5f5;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+    .publication-title {
+      font-weight: 800;
+      font-size: 2.5rem;
+    }
+    .publication-authors {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+    }
+    .publication-links {
+      margin-top: 1.5rem;
+    }
+    .publication-links .link-block {
+      margin: 0.5rem;
+    }
+    .footer {
+      background-color: var(--light-background-color);
+    }
+    .bibtex-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .realmirror-banner {
+      background-size: cover;
+      background-position: center center;
+      color: white;
+    }
+    .realmirror-banner .hero-body {
+      background-color: rgba(0, 0, 0, 0.55); /* Dark overlay for text readability */
+    }
+    .realmirror-banner .title {
+      color: white;
+      font-size: 4rem;
+      font-weight: 800;
+    }
+    .realmirror-banner .subtitle {
+      color: #f5f5f5;
+      font-weight: 500;
+    }
+    .realmirror-banner .button.is-white.is-outlined {
+      border-color: white;
+      color: white;
+      font-weight: bold;
+    }
+    .realmirror-banner .button.is-white.is-outlined:hover {
+      background: white;
+      color: black;
+    }
+    .feature-icon {
+        font-size: 3rem;
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+    }
+    .section-title {
+        margin-bottom: 3rem;
+    }
+    .interactive-image {
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+    .interactive-image:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+
+<main id="main-content">
+
+<!-- Section 1: Hero Section for Dexora -->
+<section class="hero is-fullheight realmirror-banner" style="background-image: url('assets/img/toutu.gif')">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h2 class="subtitle is-4" style="font-size: 1.9rem; white-space: nowrap;">Dexora: Open-source Vision-Language-Action for Dual-Arm, Dual-Hand High-DoF Manipulation</h2>
+      <h1 class="title is-1" style="font-size: 6.2rem;">DEXORA</h1>
+      <span class="dot-dash">.</span>
+      <div class="content has-text-justified" style="max-width: 900px; margin: 1rem auto; font-size: 1.2rem;">
+        <p>
+          We introduce Dexora, the first open-source VLA system that natively targets dual-arm, dual-hand high-DoF manipulation. Leveraging a hybrid teleoperation pipeline and a comprehensive dataset, Dexora is trained to handle both basic and dexterous tasks with remarkable performance. Our approach unifies dual-arm coordination and fine finger control, opening the path for universal controllers across varying embodiments.
+        </p>
+      </div>
+      <div class="publication-links">
+        <span class="link-block">
+          <a href="#" class="button is-white is-outlined is-rounded is-medium">
+            <span class="icon"><i class="ai ai-arxiv"></i></span>
+            <span>arXiv</span>
+          </a>
+        </span>
+        <span class="link-block">
+          <a href="#" class="button is-white is-outlined is-rounded is-medium">
+            <span class="icon"><i class="fas fa-dice-d20"></i></span>
+            <span>Asset</span>
+          </a>
+        </span>
+        <span class="link-block">
+          <a href="https://github.com/terminators2025" class="button is-white is-outlined is-rounded is-medium">
+            <span class="icon"><i class="fab fa-github"></i></span>
+            <span>Code</span>
+          </a>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 2: Main Contributions Section -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column">
+        <h3 class="title is-3 has-text-centered">Main Contributions</h3>
+        <div class="result-image-container">
+          <img src="assets/img/toutu3.png" alt="Main Contributions" class="result-image"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Display Video Section -->
+<section class="hero is-small is-light">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="title is-3 has-text-centered">Demo Video</h2>
+        <div class="columns is-centered">
+          <div class="column is-three-quarters">
+            <div class="publication-video">
+              <video controls muted loop preload="metadata" style="border-radius: 8px;">
+                <source src="assets/moive/Dexora_demo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+<!-- Section for Research Methodology Image -->
+<section class="section hero is-light">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column">
+          <h3 class="title is-3 has-text-centered">Hybrid Teleoperation Pipeline</h3>
+          <div class="result-image-container">
+            <img src="assets/img/pipline2_down.png" alt="Pipeline Overview" class="result-image"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section for Scenario Examples -->
+<section class="section hero is-light">
+    <div class="container">
+      <h3 class="title is-3 has-text-centered">Scenario Assets</h3>
+      <!-- Display multiple images -->
+      <div class="columns is-centered">
+        <div class="column is-one-third">
+          <figure class="image">
+            <img src="assets/img/1_1.gif" alt="Scenario asset 1" class="interactive-image">
+          </figure>
+        </div>
+        <div class="column is-one-third">
+          <figure class="image">
+            <img src="assets/img/2_1.gif" alt="Scenario asset 2" class="interactive-image">
+          </figure>
+        </div>
+        <div class="column is-one-third">
+          <figure class="image">
+            <img src="assets/img/3_1.gif" alt="Scenario asset 3" class="interactive-image">
+          </figure>
+        </div>
+      </div>
+    </div>
+</section>
+
+<!-- BibTex citation section -->
+<section class="section is-light" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <div class="bibtex-header">
+        <h2 class="title">BibTeX</h2>
+        <button class="button" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
+          <span class="icon"><i class="fas fa-copy"></i></span>
+          <span>Copy</span>
+        </button>
+      </div>
+      <pre id="bibtex-code" style="border-radius: 8px;"><code>
+        @article{tai2025dexora,
+        title={Dexora: Open-source VLA for High-DoF Bimanual Dexterity},
+        author={Dexora Team},
+        journal={arXiv preprint arXiv:2509.14687},
+        year={2025}
+        }
+      </code></pre>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content has-text-centered">
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener noreferrer">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank" rel="noopener noreferrer">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function copyBibTeX() {
+    const bibtexCode = document.getElementById('bibtex-code').textContent;
+    navigator.clipboard.writeText(bibtexCode).then(function() {
+      alert('BibTeX copied to clipboard!');
+    }, function(err) {
+      alert('Failed to copy BibTeX.');
+    });
+  }
+</script>
+
+</body>
+</html>
