@@ -248,7 +248,7 @@
         width: 50%;
         height: 500px;
         background: #fff;
-        -webkit-transform: skew(0deg, -8deg);
+        -webkit-transform: skew(0deg, -8deg)
         transform: skew(0deg, -8deg);
         z-index: 0; }
 
@@ -274,7 +274,7 @@
 <section class="hero is-fullheight realmirror-banner" style="background-image: url('assets/img/background.gif')">
   <div class="hero-body">
     <div class="container has-text-centered">
-      <h2 class="subtitle is-4" style="font-size: 1.9rem; white-space: nowrap;">Dexora: Open-source Vision-Language-Action for Dual-Arm, Dual-Hand High-DoF Manipulation</h2>
+      <h2 class="subtitle is-4" style="font-size: 1.9rem; white-space: nowrap;">Dexora: Open-source VLA for High-DoF Bimanual Dexterity</h2>
       <h1 class="title is-1" style="font-size: 6.2rem;">DEXORA</h1>
       <span class="dot-dash">.</span>
       <div class="content has-text-justified" style="max-width: 900px; margin: 1rem auto; font-size: 1.2rem;">
@@ -351,7 +351,7 @@
       <h3 class="title is-3 has-text-centered">Teleoperation System</h3>
       <!-- Single video centered -->
       <div class="columns is-centered">
-        <div class="column is-three-quarters">  <!-- 更宽的列 -->
+        <div class="column is-three-quarters">  
           <figure class="image">
             <!-- MODIFIED: Single video display -->
             <video controls muted loop preload="metadata" class="interactive-image" style="width: 120%; height: auto; border-radius: 8px; max-height: 500px;">
@@ -368,36 +368,38 @@
 <section class="section hero is-light">
   <div class="hero-body">
     <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column">
-          <h3 class="title is-3 has-text-centered">Dataset</h3>
-          <!-- Two videos side by side -->
-          <div class="columns is-centered">
-            <div class="column is-half">
-              <div class="box" style="background-color: #f5f5f5; border-radius: 8px; padding: 1rem; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
-                <figure class="image" style="flex: 1; display: flex; align-items: center; justify-content: center;">
-                  <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 4px; max-height: 300px;">
-                    <source src="assets\moive\dataset\sim.mp4" type="video/mp4">
-                    您的浏览器不支持视频标签。
-                  </video>
-                </figure>
-                <p class="has-text-centered" style="margin-top: 1rem; font-weight: 600; padding: 0.5rem 0;">Simulation</p>
-              </div>
-            </div>
-            <div class="column is-half">
-              <div class="box" style="background-color: #f5f5f5; border-radius: 8px; padding: 1rem; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
-                <figure class="image" style="flex: 1; display: flex; align-items: center; justify-content: center;">
-                  <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 4px; max-height: 300px;">
-                    <source src="assets\moive\dataset\real.mp4" type="video/mp4">
-                    您的浏览器不支持视频标签。
-                  </video>
-                </figure>
-                <p class="has-text-centered" style="margin-top: 1rem; font-weight: 600; padding: 0.5rem 0;">Real World</p>
-              </div>
-            </div>
+      <h3 class="title is-3 has-text-centered">Dataset</h3>
+      
+      <!-- First video row -->
+      <div class="columns is-centered" style="margin-bottom: 2rem;">
+        <div class="column is-three-quarters">
+          <div class="box" style="background-color: #f5f5f5; border-radius: 8px; padding: 2rem;">
+            <figure class="image" style="display: flex; align-items: center; justify-content: center;">
+              <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 4px; max-height: 400px;">
+                <source src="assets\moive\dataset\sim.mp4" type="video/mp4">
+                您的浏览器不支持视频标签。
+              </video>
+            </figure>
+            <p class="has-text-centered" style="margin-top: 1rem; font-weight: 600; padding: 0.5rem 0; font-size: 1.2rem;">Simulation</p>
           </div>
         </div>
       </div>
+      
+      <!-- Second video row -->
+      <div class="columns is-centered">
+        <div class="column is-three-quarters">
+          <div class="box" style="background-color: #f5f5f5; border-radius: 8px; padding: 1rem;">
+            <figure class="image" style="display: flex; align-items: center; justify-content: center;">
+              <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 4px; max-height: 400px;">
+                <source src="assets\moive\dataset\real.mp4" type="video/mp4">
+                您的浏览器不支持视频标签。
+              </video>
+            </figure>
+            <p class="has-text-centered" style="margin-top: 1rem; font-weight: 600; padding: 0.5rem 0; font-size: 1.2rem;">Real World</p>
+          </div>
+        </div>
+      </div>
+      
     </div>
   </div>
 </section>
@@ -409,7 +411,7 @@
       <div class="column">
         <h3 class="title is-3 has-text-centered">Method</h3>
         <div class="result-image-container">
-          <img src="assets/img/method.JPG" alt="Main Contributions" class="result-image"/>
+          <img src="assets/img/method.png" alt="Main Contributions" class="result-image" style="width: 90%; max-width: 90%;"/>
         </div>
       </div>
     </div>
@@ -422,151 +424,204 @@
         <h3 class="title is-3 has-text-centered">Basic Tasks Demonstration</h3>
         
         <!-- Pick and Place Section -->
-        <h4 class="title is-4 has-text-centered" style="margin-top: 2rem;">Pick and Place</h4>
-        <div class="columns is-centered is-multiline">
-            <div class="column is-one-fifth">
-                <div class="box" style="background-color: #f5f5f5; border-radius: 8px; padding: 1rem; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
-                    <figure class="image" style="flex: 1; display: flex; align-items: center; justify-content: center;">
-                        <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 4px; max-height: 200px;">
-                            <source src="assets\moive\basic_tasks\PlaceAppleOneHand.mp4" type="video/mp4">
-                            您的浏览器不支持视频标签。
-                        </video>
-                    </figure>
-                </div>
+        <h4 class="title is-4 has-text-centered" style="margin-top: 2rem; margin-bottom: 2rem;">Pick and Place</h4>
+        
+        <!-- First row: 2 videos -->
+        <div class="columns is-centered" style="margin-bottom: 3rem;">
+            <div class="column is-6" style="margin: 0 0.5rem;"> 
+                <figure class="image" style="margin-bottom: 0.3rem;"> 
+                    <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 520px;"> 
+                        <source src="assets\moive\basic_tasks\PlaceAppleOneHand.mp4" type="video/mp4">
+                        您的浏览器不支持视频标签。
+                    </video>
+                </figure>
+                <p class="has-text-centered" style="font-size: 1.1rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Place apple on plate</p> 
             </div>
-            <div class="column is-one-fifth">
-                <div class="box" style="background-color: #f5f5f5; border-radius: 8px; padding: 1rem; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
-                    <figure class="image" style="flex: 1; display: flex; align-items: center; justify-content: center;">
-                        <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 4px; max-height: 200px;">
-                            <source src="assets\moive\basic_tasks\PlaceBowlOneHand.mp4" type="video/mp4">
-                            您的浏览器不支持视频标签。
-                        </video>
-                    </figure>
-                </div>
+            <div class="column is-6" style="margin: 0 0.5rem;"> 
+                <figure class="image" style="margin-bottom: 0.3rem;">
+                    <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 520px;"> 
+                        <source src="assets\moive\basic_tasks\PlaceBowlOneHand.mp4" type="video/mp4">
+                        您的浏览器不支持视频标签。
+                    </video>
+                </figure>
+                <p class="has-text-centered" style="font-size: 1.1rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Place bowl into bowl</p>
             </div>
-            <div class="column is-one-fifth">
-                <div class="box" style="background-color: #f5f5f5; border-radius: 8px; padding: 1rem; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
-                    <figure class="image" style="flex: 1; display: flex; align-items: center; justify-content: center;">
-                        <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 4px; max-height: 200px;">
-                            <source src="assets\moive\basic_tasks\PlaceEggsTwoHands.mp4" type="video/mp4">
-                            您的浏览器不支持视频标签。
-                        </video>
-                    </figure>
-                </div>
+        </div>
+        
+        <!-- Second row: 2 videos -->
+        <div class="columns is-centered" style="margin-bottom: 3rem;">
+            <div class="column is-6" style="margin: 0 0.5rem;">
+                <figure class="image" style="margin-bottom: 0.3rem;">
+                    <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 520px;">
+                        <source src="assets\moive\basic_tasks\PlaceEggsTwoHands.mp4" type="video/mp4">
+                        您的浏览器不支持视频标签。
+                    </video>
+                </figure>
+                <p class="has-text-centered" style="font-size: 1.1rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Put two eggs into box</p>
             </div>
-            <div class="column is-one-fifth">
-                <div class="box" style="background-color: #f5f5f5; border-radius: 8px; padding: 1rem; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
-                    <figure class="image" style="flex: 1; display: flex; align-items: center; justify-content: center;">
-                        <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 4px; max-height: 200px;">
-                            <source src="assets\moive\basic_tasks\lift_basket_twohand.mp4" type="video/mp4">
-                            您的浏览器不支持视频标签。
-                        </video>
-                    </figure>
-                </div>
+            <div class="column is-6" style="margin: 0 0.5rem;">
+                <figure class="image" style="margin-bottom: 0.3rem;">
+                    <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 520px;">
+                        <source src="assets\moive\basic_tasks\lift_basket_twohand.mp4" type="video/mp4">
+                        您的浏览器不支持视频标签。
+                    </video>
+                </figure>
+                <p class="has-text-centered" style="font-size: 1.1rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Lift basket</p>
             </div>
-            <div class="column is-one-fifth">
-                <div class="box" style="background-color: #f5f5f5; border-radius: 8px; padding: 1rem; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
-                    <figure class="image" style="flex: 1; display: flex; align-items: center; justify-content: center;">
-                        <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 4px; max-height: 200px;">
-                            <source src="assets\moive\basic_tasks\TransferBlocksRightPlate.mp4" type="video/mp4">
-                            您的浏览器不支持视频标签。
-                        </video>
-                    </figure>
-                </div>
+        </div>
+        
+        <!-- Third row: 1 video (centered) -->
+        <div class="columns is-centered" style="margin-bottom: 4rem;">
+            <div class="column is-6">
+                <figure class="image" style="margin-bottom: 0.3rem;">
+                    <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 520px;">
+                        <source src="assets\moive\basic_tasks\TransferBlocksRightPlate.mp4" type="video/mp4">
+                        您的浏览器不支持视频标签。
+                    </video>
+                </figure>
+                <p class="has-text-centered" style="font-size: 1.1rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Move block  to right plate</p>
             </div>
         </div>
         
         <!-- Assemble/Disassemble Section -->
-        <h4 class="title is-4 has-text-centered" style="margin-top: 3rem;">Assemble/Disassemble</h4>
-        <div class="columns is-centered is-multiline">
-            <div class="column is-one-fifth">
-                <div class="box" style="background-color: #f5f5f5; border-radius: 8px; padding: 1rem; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
-                    <figure class="image" style="flex: 1; display: flex; align-items: center; justify-content: center;">
-                        <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 4px; max-height: 200px;">
-                            <source src="assets\moive\basic_tasks\InsertRingOneHand.mp4" type="video/mp4">
-                            您的浏览器不支持视频标签。
-                        </video>
-                    </figure>
-                </div>
+        <h4 class="title is-4 has-text-centered" style="margin-top: 3rem; margin-bottom: 2rem;">Assemble/Disassemble</h4>
+        
+        <!-- First row: 2 videos -->
+        <div class="columns is-centered" style="margin-bottom: 3rem;">
+            <div class="column is-6" style="margin: 0 0.5rem;">
+                <figure class="image" style="margin-bottom: 0.3rem;">
+                    <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 520px;">
+                        <source src="assets\moive\basic_tasks\InsertRingOneHand.mp4" type="video/mp4">
+                        您的浏览器不支持视频标签。
+                    </video>
+                </figure>
+                <p class="has-text-centered" style="font-size: 1.1rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Stack ring blocks</p>
             </div>
-            <div class="column is-one-fifth">
-                <div class="box" style="background-color: #f5f5f5; border-radius: 8px; padding: 1rem; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
-                    <figure class="image" style="flex: 1; display: flex; align-items: center; justify-content: center;">
-                        <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 4px; max-height: 200px;">
-                            <source src="assets\moive\basic_tasks\Unimanual removal of ring from peg.mp4" type="video/mp4">
-                            您的浏览器不支持视频标签。
-                        </video>
-                    </figure>
-                </div>
+            <div class="column is-6" style="margin: 0 0.5rem;">
+                <figure class="image" style="margin-bottom: 0.3rem;">
+                    <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 520px;">
+                        <source src="assets\moive\basic_tasks\Unimanual removal of ring from peg.mp4" type="video/mp4">
+                        您的浏览器不支持视频标签。
+                    </video>
+                </figure>
+                <p class="has-text-centered" style="font-size: 1.1rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Grab square blocks</p>
             </div>
-            <div class="column is-one-fifth">
-                <div class="box" style="background-color: #f5f5f5; border-radius: 8px; padding: 1rem; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
-                    <figure class="image" style="flex: 1; display: flex; align-items: center; justify-content: center;">
-                        <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 4px; max-height: 200px;">
-                            <source src="assets\moive\basic_tasks\place_kettle_on_base_onehand.mp4" type="video/mp4">
-                            您的浏览器不支持视频标签。
-                        </video>
-                    </figure>
-                </div>
+        </div>
+        
+        <!-- Second row: 2 videos -->
+        <div class="columns is-centered" style="margin-bottom: 3rem;">
+            <div class="column is-6" style="margin: 0 0.5rem;">
+                <figure class="image" style="margin-bottom: 0.3rem;">
+                    <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 520px;">
+                        <source src="assets\moive\basic_tasks\place_kettle_on_base_onehand.mp4" type="video/mp4">
+                        您的浏览器不支持视频标签。
+                    </video>
+                </figure>
+                <p class="has-text-centered" style="font-size: 1.1rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Place kettle on base</p>
             </div>
-            <div class="column is-one-fifth">
-                <div class="box" style="background-color: #f5f5f5; border-radius: 8px; padding: 1rem; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
-                    <figure class="image" style="flex: 1; display: flex; align-items: center; justify-content: center;">
-                        <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 4px; max-height: 200px;">
-                            <source src="assets\moive\basic_tasks\uncap_pencil.mp4" type="video/mp4">
-                            您的浏览器不支持视频标签。
-                        </video>
-                    </figure>
-                </div>
+            <div class="column is-6" style="margin: 0 0.5rem;">
+                <figure class="image" style="margin-bottom: 0.3rem;">
+                    <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 520px;">
+                        <source src="assets\moive\basic_tasks\uncap_pencil.mp4" type="video/mp4">
+                        您的浏览器不支持视频标签。
+                    </video>
+                </figure>
+                <p class="has-text-centered" style="font-size: 1.1rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Remove pen cap</p>
             </div>
-            <div class="column is-one-fifth">
-                <div class="box" style="background-color: #f5f5f5; border-radius: 8px; padding: 1rem; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
-                    <figure class="image" style="flex: 1; display: flex; align-items: center; justify-content: center;">
-                        <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 4px; max-height: 200px;">
-                            <source src="assets\moive\basic_tasks\SplitBasinTwoHands.mp4" type="video/mp4">
-                            您的浏览器不支持视频标签。
-                        </video>
-                    </figure>
-                </div>
+        </div>
+        
+        <!-- Third row: 1 video (centered) -->
+        <div class="columns is-centered" style="margin-bottom: 4rem;">
+            <div class="column is-6">
+                <figure class="image" style="margin-bottom: 0.3rem;">
+                    <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 520px;">
+                        <source src="assets\moive\basic_tasks\SplitBasinTwoHands.mp4" type="video/mp4">
+                        您的浏览器不支持视频标签。
+                    </video>
+                </figure>
+                <p class="has-text-centered" style="font-size: 1.1rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Separate nested bowls</p>
             </div>
         </div>
         
         <!-- Articulated Object Section -->
-        <h4 class="title is-4 has-text-centered" style="margin-top: 3rem;">Articulated Object</h4>
-        <div class="columns is-centered is-multiline">
-            <div class="column is-one-fifth">
-                <div class="box" style="background-color: #f5f5f5; border-radius: 8px; padding: 1rem; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
-                    <figure class="image" style="flex: 1; display: flex; align-items: center; justify-content: center;">
-                        <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 4px; max-height: 200px;">
-                            <source src="assets\moive\basic_tasks\OpenCabinetDoor.mp4" type="video/mp4">
-                            您的浏览器不支持视频标签。
-                        </video>
-                    </figure>
-                </div>
+        <h4 class="title is-4 has-text-centered" style="margin-top: 3rem; margin-bottom: 2rem;">Articulated Object</h4>
+        
+        <!-- One row: 2 videos -->
+        <div class="columns is-centered" style="margin-bottom: 3rem;">
+            <div class="column is-6" style="margin: 0 0.5rem;">
+                <figure class="image" style="margin-bottom: 0.3rem;">
+                    <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 520px;">
+                        <source src="assets\moive\basic_tasks\OpenCabinetDoor.mp4" type="video/mp4">
+                        您的浏览器不支持视频标签。
+                    </video>
+                </figure>
+                <p class="has-text-centered" style="font-size: 1.1rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Open cabinet door</p>
             </div>
-            <div class="column is-one-fifth">
-                <div class="box" style="background-color: #f5f5f5; border-radius: 8px; padding: 1rem; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
-                    <figure class="image" style="flex: 1; display: flex; align-items: center; justify-content: center;">
-                        <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 4px; max-height: 200px;">
-                            <source src="assets\moive\basic_tasks\open_laptop.mp4" type="video/mp4">
-                            您的浏览器不支持视频标签。
-                        </video>
-                    </figure>
-                </div>
+            <div class="column is-6" style="margin: 0 0.5rem;">
+                <figure class="image" style="margin-bottom: 0.3rem;">
+                    <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 520px;">
+                        <source src="assets\moive\basic_tasks\open_laptop.mp4" type="video/mp4">
+                        您的浏览器不支持视频标签。
+                    </video>
+                </figure>
+                <p class="has-text-centered" style="font-size: 1.1rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Open laptop</p>
             </div>
-            <!-- Empty columns for better alignment -->
-            <div class="column is-one-fifth"></div>
-            <div class="column is-one-fifth"></div>
-            <div class="column is-one-fifth"></div>
         </div>
     </div>
 </section>
 
 
-
-
-
-</main>
+<!-- START: Dexterous manipulation -->
+<section class="section hero is-light">
+    <div class="container">
+        <h3 class="title is-3 has-text-centered">Dexterous manipulation sequences</h3>
+        
+        <!-- First row: 2 videos -->
+        <div class="columns is-centered" style="margin-bottom: 3rem;">
+            <div class="column is-6" style="margin: 0 0.5rem;"> 
+                <figure class="image" style="margin-bottom: 0.3rem;"> 
+                    <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 520px;">
+                        <source src="assets/moive/Dexterous manipulation/cut_scallion.mp4" type="video/mp4">
+                        您的浏览器不支持视频标签。
+                    </video>
+                </figure>
+                <p class="has-text-centered" style="font-size: 1.1rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Cut scallion</p>
+            </div>
+            <div class="column is-6" style="margin: 0 0.5rem;"> 
+                <figure class="image" style="margin-bottom: 0.3rem;"> 
+                    <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 520px;">
+                        <source src="assets/moive/Dexterous manipulation/use_pen.mp4" type="video/mp4">
+                        您的浏览器不支持视频标签。
+                    </video>
+                </figure>
+                <p class="has-text-centered" style="font-size: 1.1rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Use pen </p> 
+            </div>
+        </div>
+        
+        <!-- Second row: 2 videos -->
+        <div class="columns is-centered" style="margin-bottom: 3rem;">
+            <div class="column is-6" style="margin: 0 0.5rem;"> 
+                <figure class="image" style="margin-bottom: 0.3rem;"> 
+                    <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 520px;">
+                        <source src="assets/moive/Dexterous manipulation/RollDough.mp4" type="video/mp4">
+                        您的浏览器不支持视频标签。
+                    </video>
+                </figure>
+                <p class="has-text-centered" style="font-size: 1.1rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Roll dough</p> 
+            </div>
+            <div class="column is-6" style="margin: 0 0.5rem;"> 
+                <figure class="image" style="margin-bottom: 0.3rem;"> 
+                    <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 520px;">
+                        <source src="assets/moive/Dexterous manipulation/TwistCap.mp4" type="video/mp4">
+                        您的浏览器不支持视频标签。
+                    </video>
+                </figure>
+                <p class="has-text-centered" style="font-size: 1.1rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Twist cap</p> 
+            </div>
+        </div>
+        
+    </div>
+</section>
 
 <!-- Footer -->
 <footer class="footer">
