@@ -292,7 +292,7 @@
   </div>
 </section>
 
-<!-- Section 2: Your "Four Elements" Section (White background) -->
+<!-- Section 2: Your "Four Elements" Section (White background)
 <section class="section">
   <div class="container">
     <div class="columns is-multiline is-centered">
@@ -326,12 +326,12 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 
 
 
-<!-- Section for Main Contributions Image (White background) -->
+<!-- Section for Main Contributions Image (White background)
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
@@ -343,64 +343,60 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 <!-- START: New Section for Scenario Assets -->
-<section class="section hero is-light">
-    <div class="container">
-      <h3 class="title is-3 has-text-centered">Teleoperation System</h3>
-      <!-- Single video centered -->
-      <div class="columns is-centered">
-        <div class="column is-three-quarters">  
-          <figure class="image">
-            <!-- MODIFIED: Single video display -->
-            <video controls muted loop preload="metadata" class="interactive-image" style="width: 120%; height: auto; border-radius: 12px; max-height: 780px;">
-              <source src="assets/moive/telepreation.mp4" type="video/mp4">
-              您的浏览器不支持视频标签。
-            </video>
-          </figure>
+<section class="section hero is-light is-fullheight">
+    <div class="hero-body" style="padding: 0;">
+      <div class="container is-fluid" style="padding: 0; height: 100vh; display: flex; flex-direction: column;">
+        <h3 class="title is-3 has-text-centered" style="margin-bottom: 2rem; padding: 2rem 2rem 0 2rem; flex-shrink: 0;">Teleoperation System</h3>
+        <!-- Single video full width -->
+        <div class="columns is-centered" style="margin: 0; flex: 1; display: flex;">
+          <div class="column" style="padding: 0; display: flex; align-items: center;">  
+            <figure class="image" style="margin: 0; width: 100%;">
+              <!-- MODIFIED: Full screen video display -->
+              <video controls muted loop preload="metadata" class="interactive-image" style="width: 100vw; height: auto; border-radius: 0; max-height: calc(100vh - 8rem); display: block;">
+                <source src="assets/moive/telepreation.mp4" type="video/mp4">
+                您的浏览器不支持视频标签。
+              </video>
+            </figure>
+          </div>
         </div>
       </div>
     </div>
 </section>
 
-<!-- Section for Dataset Videos (Light grey background) -->
-<section class="section hero is-light">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <h3 class="title is-3 has-text-centered">Dataset</h3>
-      
-      <!-- First video row -->
-      <div class="columns is-centered" style="margin-bottom: 2rem;">
-        <div class="column is-three-quarters">
-          <div class="box" style="background-color: #f5f5f5; border-radius: 8px; padding: 2rem;">
-            <figure class="image" style="display: flex; align-items: center; justify-content: center;">
-              <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 780px;">
-                <source src="assets\moive\dataset\sim.mp4" type="video/mp4">
-                您的浏览器不支持视频标签。
-              </video>
-            </figure>
-            <p class="has-text-centered" style="margin-top: 1rem; font-weight: 600; padding: 0.5rem 0; font-size: 1.2rem;">Simulation</p>
-          </div>
-        </div>
+<!-- Section for Dataset Videos -->
+<section class="section">
+  <div class="container">
+    <h3 class="title is-3 has-text-centered" style="margin-bottom: 3rem;">Dataset</h3>
+    
+    <!-- First video - Simulation -->
+    <div class="columns is-centered" style="margin-bottom: 4rem;">
+      <div class="column is-11">
+        <p class="has-text-centered" style="font-weight: 600; font-size: 1.8rem; color: #363636; margin-bottom: 1rem;">Simulation</p>
+        <figure class="image">
+          <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: none;">
+            <source src="assets\moive\dataset\sim.mp4" type="video/mp4">
+            您的浏览器不支持视频标签。
+          </video>
+        </figure>
       </div>
-      
-      <!-- Second video row -->
-      <div class="columns is-centered">
-        <div class="column is-three-quarters">
-          <div class="box" style="background-color: #f5f5f5; border-radius: 8px; padding: 1rem;">
-            <figure class="image" style="display: flex; align-items: center; justify-content: center;">
-              <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 4px; max-height: 400px;">
-                <source src="assets\moive\dataset\real.mp4" type="video/mp4">
-                您的浏览器不支持视频标签。
-              </video>
-            </figure>
-            <p class="has-text-centered" style="margin-top: 1rem; font-weight: 600; padding: 0.5rem 0; font-size: 1.2rem;">Real World</p>
-          </div>
-        </div>
-      </div>
-      
     </div>
+    
+    <!-- Second video - Real World -->
+    <div class="columns is-centered" style="margin-bottom: 3rem;">
+      <div class="column is-15">
+        <p class="has-text-centered" style="font-weight: 600; font-size: 1.8rem; color: #363636; margin-bottom: 1rem;">Real World</p>
+        <figure class="image">
+          <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: none;">
+            <source src="assets\moive\dataset\real.mp4" type="video/mp4">
+            您的浏览器不支持视频标签。
+          </video>
+        </figure>
+      </div>
+    </div>
+    
   </div>
 </section>
 
@@ -623,6 +619,268 @@
     </div>
 </section>
 
+
+<!-- START: Out-of-Distribution Generalization -->
+<section class="section hero is-light">
+    <div class="container">
+        <h3 class="title is-3 has-text-centered">Out-of-Distribution Generalization</h3>
+        
+        <!-- First row: 2 videos -->
+        <div class="columns is-centered" style="margin-bottom: 3rem;">
+            <div class="column is-7" style="margin: 0 0.3rem;"> 
+                <figure class="image" style="margin-bottom: 0.3rem;"> 
+                    <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 780px;">
+                        <source src="assets/moive/OOD generalization/clutter.mp4" type="video/mp4">
+                        您的浏览器不支持视频标签。
+                    </video>
+                </figure>
+                <p class="has-text-centered" style="font-size: 1.2rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Cut scallion</p>
+            </div>
+            <div class="column is-7" style="margin: 0 0.3rem;"> 
+                <figure class="image" style="margin-bottom: 0.3rem;"> 
+                    <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 780px;">
+                        <source src="assets/moive/OOD generalization/height change.mp4" type="video/mp4">
+                        您的浏览器不支持视频标签。
+                    </video>
+                </figure>
+                <p class="has-text-centered" style="font-size: 1.2rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Use pen</p> 
+            </div>
+        </div>
+        
+        <!-- Second row: 2 videos -->
+        <div class="columns is-centered" style="margin-bottom: 3rem;">
+            <div class="column is-7" style="margin: 0 0.3rem;"> 
+                <figure class="image" style="margin-bottom: 0.3rem;"> 
+                    <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 780px;">
+                        <source src="assets/moive/OOD generalization/occlusion.mp4" type="video/mp4">
+                        您的浏览器不支持视频标签。
+                    </video>
+                </figure>
+                <p class="has-text-centered" style="font-size: 1.2rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Roll dough</p> 
+            </div>
+            <div class="column is-7" style="margin: 0 0.3rem;"> 
+                <figure class="image" style="margin-bottom: 0.3rem;"> 
+                    <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 780px;">
+                        <source src="assets/moive/OOD generalization/unseen background.mp4" type="video/mp4">
+                        您的浏览器不支持视频标签。
+                    </video>
+                </figure>
+                <p class="has-text-centered" style="font-size: 1.2rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Twist cap</p> 
+            </div>
+        </div>
+
+        <!-- Third row: 2 videos -->
+        <div class="columns is-centered" style="margin-bottom: 3rem;">
+            <div class="column is-7" style="margin: 0 0.3rem;"> 
+                <figure class="image" style="margin-bottom: 0.3rem;"> 
+                    <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 780px;">
+                        <source src="assets/moive/OOD generalization/unseen lighting.mp4" type="video/mp4">
+                        您的浏览器不支持视频标签。
+                    </video>
+                </figure>
+                <p class="has-text-centered" style="font-size: 1.2rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Roll dough</p> 
+            </div>
+            <div class="column is-7" style="margin: 0 0.3rem;"> 
+                <figure class="image" style="margin-bottom: 0.3rem;"> 
+                    <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 780px;">
+                        <source src="assets/moive/OOD generalization/unseen object.mp4" type="video/mp4">
+                        您的浏览器不支持视频标签。
+                    </video>
+                </figure>
+                <p class="has-text-centered" style="font-size: 1.2rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Twist cap</p> 
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+
+<!-- START: Cross-embodiment Generalization -->
+<section class="section hero is-light">
+    <div class="container">
+        <h3 class="title is-3 has-text-centered">Cross-embodiment Generalization</h3>
+
+        <!-- First row: Place Ice Cream Task -->
+        <div class="columns is-centered" style="margin-bottom: 3rem;">
+            <div class="column is-5" style="margin: 0 0.15rem;"> 
+                <figure class="image" style="margin-bottom: 0.3rem;"> 
+                    <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 780px;">
+                        <source src="assets/moive/Cross-embodiment generalization/single gripper ice cream.mp4" type="video/mp4">
+                        您的浏览器不支持视频标签。
+                    </video>
+                </figure>
+                <p class="has-text-centered" style="font-size: 1.1rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Single Gripper: Place Ice Cream</p>
+            </div>
+            <div class="column is-5" style="margin: 0 0.15rem;"> 
+                <figure class="image" style="margin-bottom: 0.3rem;"> 
+                    <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 780px;">
+                        <source src="assets/moive/Cross-embodiment generalization/single hand icecream.mp4" type="video/mp4">
+                        您的浏览器不支持视频标签。
+                    </video>
+                </figure>
+                <p class="has-text-centered" style="font-size: 1.1rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Single Hand: Place Ice Cream</p> 
+            </div>
+            <div class="column is-5" style="margin: 0 0.15rem;"> 
+                <figure class="image" style="margin-bottom: 0.3rem;"> 
+                    <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 780px;">
+                        <source src="assets/moive/Cross-embodiment generalization/dual gripperPlaceIceCreamBowl.mp4" type="video/mp4">
+                        您的浏览器不支持视频标签。
+                    </video>
+                </figure>
+                <p class="has-text-centered" style="font-size: 1.1rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Dual Gripper: Place Ice Cream</p> 
+            </div>
+        </div>
+        
+        <!-- Second row: Stack Bowls Task -->
+        <div class="columns is-centered" style="margin-bottom: 3rem;">
+            <div class="column is-5" style="margin: 0 0.15rem;"> 
+                <figure class="image" style="margin-bottom: 0.3rem;"> 
+                    <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 780px;">
+                        <source src="assets/moive/Cross-embodiment generalization/single gripperstack bowls.mp4" type="video/mp4">
+                        您的浏览器不支持视频标签。
+                    </video>
+                </figure>
+                <p class="has-text-centered" style="font-size: 1.1rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Single Gripper: Stack Bowls</p> 
+            </div>
+            <div class="column is-5" style="margin: 0 0.15rem;"> 
+                <figure class="image" style="margin-bottom: 0.3rem;"> 
+                    <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 780px;">
+                        <source src="assets/moive/Cross-embodiment generalization/single handStackBowls_v0.mp4" type="video/mp4">
+                        您的浏览器不支持视频标签。
+                    </video>
+                </figure>
+                <p class="has-text-centered" style="font-size: 1.1rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Single Hand: Stack Bowls</p> 
+            </div>
+            <div class="column is-5" style="margin: 0 0.15rem;"> 
+                <figure class="image" style="margin-bottom: 0.3rem;"> 
+                    <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 780px;">
+                        <source src="assets/moive/Cross-embodiment generalization/dual gripperStackBowls.mp4" type="video/mp4">
+                        您的浏览器不支持视频标签。
+                    </video>
+                </figure>
+                <p class="has-text-centered" style="font-size: 1.1rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Dual Gripper: Stack Bowls</p> 
+            </div>
+        </div>
+
+        <!-- Third row: Pour Water Task -->
+        <div class="columns is-centered" style="margin-bottom: 3rem;">
+            <div class="column is-5" style="margin: 0 0.15rem;"> 
+                <figure class="image" style="margin-bottom: 0.3rem;"> 
+                    <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 780px;">
+                        <source src="assets/moive/Cross-embodiment generalization/single gripperpourWater.mp4" type="video/mp4">
+                        您的浏览器不支持视频标签。
+                    </video>
+                </figure>
+                <p class="has-text-centered" style="font-size: 1.1rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Single Gripper: Pour Water</p> 
+            </div>
+            <div class="column is-5" style="margin: 0 0.15rem;"> 
+                <figure class="image" style="margin-bottom: 0.3rem;"> 
+                    <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 780px;">
+                        <source src="assets/moive/Cross-embodiment generalization/singlehandpurwate.mp4" type="video/mp4">
+                        您的浏览器不支持视频标签。
+                    </video>
+                </figure>
+                <p class="has-text-centered" style="font-size: 1.1rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Single Hand: Pour Water</p> 
+            </div>
+            <div class="column is-5" style="margin: 0 0.15rem;"> 
+                <figure class="image" style="margin-bottom: 0.3rem;"> 
+                    <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 780px;">
+                        <source src="assets/moive/Cross-embodiment generalization/dual gripper pourWater.mp4" type="video/mp4">
+                        您的浏览器不支持视频标签。
+                    </video>
+                </figure>
+                <p class="has-text-centered" style="font-size: 1.1rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Dual Gripper: Pour Water</p> 
+            </div>
+        </div>
+        
+        <!-- Fourth row: Stack Blocks Task -->
+        <div class="columns is-centered" style="margin-bottom: 3rem;">
+            <div class="column is-5" style="margin: 0 0.15rem;"> 
+                <figure class="image" style="margin-bottom: 0.3rem;"> 
+                    <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 780px;">
+                        <source src="assets/moive/Cross-embodiment generalization/single gripperstackBlocks 2.mp4" type="video/mp4">
+                        您的浏览器不支持视频标签。
+                    </video>
+                </figure>
+                <p class="has-text-centered" style="font-size: 1.1rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Single Gripper: Stack Blocks</p> 
+            </div>
+            <div class="column is-5" style="margin: 0 0.15rem;"> 
+                <figure class="image" style="margin-bottom: 0.3rem;"> 
+                    <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 780px;">
+                        <source src="assets/moive/Cross-embodiment generalization/single handStackBlocks_v0.mp4" type="video/mp4">
+                        您的浏览器不支持视频标签。
+                    </video>
+                </figure>
+                <p class="has-text-centered" style="font-size: 1.1rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Single Hand: Stack Blocks</p> 
+            </div>
+            <div class="column is-5" style="margin: 0 0.15rem;"> 
+                <figure class="image" style="margin-bottom: 0.3rem;"> 
+                    <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 780px;">
+                        <source src="assets/moive/Cross-embodiment generalization/dual gripperstackBlocks.mp4" type="video/mp4">
+                        您的浏览器不支持视频标签。
+                    </video>
+                </figure>
+                <p class="has-text-centered" style="font-size: 1.1rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Dual Gripper: Stack Blocks</p> 
+            </div>
+        </div>
+
+        <!-- Fifth row: Place Cake on Plate Task -->
+        <div class="columns is-centered" style="margin-bottom: 3rem;">
+            <div class="column is-5" style="margin: 0 0.15rem;"> 
+                <figure class="image" style="margin-bottom: 0.3rem;"> 
+                    <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 780px;">
+                        <source src="assets/moive/Cross-embodiment generalization/single gripperput two cakes.mp4" type="video/mp4">
+                        您的浏览器不支持视频标签。
+                    </video>
+                </figure>
+                <p class="has-text-centered" style="font-size: 1.1rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Single Gripper: Place Cake on Plate</p> 
+            </div>
+            <div class="column is-5" style="margin: 0 0.15rem;"> 
+                <figure class="image" style="margin-bottom: 0.3rem;"> 
+                    <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 780px;">
+                        <source src="assets/moive/Cross-embodiment generalization/single handPlaceCakePlate.mp4" type="video/mp4">
+                        您的浏览器不支持视频标签。
+                    </video>
+                </figure>
+                <p class="has-text-centered" style="font-size: 1.1rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Single Hand: Place Cake on Plate</p> 
+            </div>
+            <div class="column is-5" style="margin: 0 0.15rem;"> 
+                <figure class="image" style="margin-bottom: 0.3rem;"> 
+                    <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 780px;">
+                        <source src="assets/moive/Cross-embodiment generalization/dualgripper PlaceCakePlate.mp4" type="video/mp4">
+                        您的浏览器不支持视频标签。
+                    </video>
+                </figure>
+                <p class="has-text-centered" style="font-size: 1.1rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Dual Gripper: Place Cake on Plate</p> 
+            </div>
+        </div>
+
+        <!-- Sixth row: Dual Gripper Specialized Tasks -->
+        <div class="columns is-centered" style="margin-bottom: 3rem;">
+            <div class="column is-7" style="margin: 0 0.3rem;"> 
+                <figure class="image" style="margin-bottom: 0.3rem;"> 
+                    <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 780px;">
+                        <source src="assets/moive/Cross-embodiment generalization/dual gripperpullDrawer.mp4" type="video/mp4">
+                        您的浏览器不支持视频标签。
+                    </video>
+                </figure>
+                <p class="has-text-centered" style="font-size: 1.2rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Dual Gripper: Pull Drawer</p> 
+            </div>
+            <div class="column is-7" style="margin: 0 0.3rem;"> 
+                <figure class="image" style="margin-bottom: 0.3rem;"> 
+                    <video controls muted loop preload="metadata" class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 780px;">
+                        <source src="assets/moive/Cross-embodiment generalization/dual gripperpassgripper.mp4" type="video/mp4">
+                        您的浏览器不支持视频标签。
+                    </video>
+                </figure>
+                <p class="has-text-centered" style="font-size: 1.2rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Dual Gripper: Pass Pepper</p> 
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+
 <!-- Footer -->
 <footer class="footer">
   <div class="container">
@@ -639,6 +897,8 @@
     </div>
   </div>
 </footer>
+
+
 
 <!-- <script>
   // BibTeX copy function
