@@ -1693,6 +1693,120 @@
         </div>
         
     </div>
+</section>
+
+
+<!-- START: Fail Cases -->
+<section class="section hero is-light">
+    <div class="container">
+        <h3 class="title is-3 has-text-centered">Common Fail Cases in Real-world Evaluation</h3>
+        <div class="section-caption" style="text-align: left;">
+            Despite the overall robustness of Dexora-VLA, certain failure cases reveal fundamental challenges in semantic grounding, physical interaction modeling, and cross-arm coordination. These examples highlight open problems in large-scale Vision–Language–Action learning for high-DoF bimanual manipulation.
+        </div> 
+        <!-- First row: 2 videos -->
+        <div class="columns is-centered" style="margin-bottom: 3rem;">
+            <div class="column is-7" style="margin: 0 0.3rem;"> 
+                <div style="position: relative;">
+                    <figure class="image" style="margin-bottom: 0.3rem;"> 
+                        <video controls muted loop preload="metadata" autoplay class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 780px;">
+                            <source src="assets/moive/fail case/7.mp4" type="video/mp4">
+                            您的浏览器不支持视频标签。
+                        </video>
+                    </figure>
+                    <div style="position: absolute; top: 15px; right: 15px; background: transparent; color: black; padding: 0.2rem 0.6rem; border-radius: 15px; font-size: 1.5rem; font-weight: bold; text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;">
+                        ×2
+                    </div>
+                </div>
+                <p class="has-text-centered" style="font-size: 1.2rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Semantic Misgrounding due to Instruction Ambiguity</p>
+                <p class="has-text-centered" style="font-size: 1.0rem; font-weight: 400; color: #666; margin-top: 0.8rem; line-height: 1.6; padding: 0 1rem;">The language-conditioned policy misinterprets the referent ("smal bowl" vs. "big bowl"), leading to incorrect target selection.</p>
+            </div>
+            <div class="column is-7" style="margin: 0 0.3rem;"> 
+                <div style="position: relative;">
+                    <figure class="image" style="margin-bottom: 0.3rem;"> 
+                        <video controls muted loop preload="metadata" autoplay class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 780px;">
+                            <source src="assets/moive/fail case/1.mp4" type="video/mp4">
+                            您的浏览器不支持视频标签。
+                        </video>
+                    </figure>
+                    <div style="position: absolute; top: 15px; right: 15px; background: transparent; color: black; padding: 0.2rem 0.6rem; border-radius: 15px; font-size: 1.5rem; font-weight: bold; text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;">
+                        ×2
+                    </div>
+                </div>
+                <p class="has-text-centered" style="font-size: 1.2rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Visual Misclassification under Object Similarity</p>
+                <p class="has-text-centered" style="font-size: 1.0rem; font-weight: 400; color: #666; margin-top: 0.8rem; line-height: 1.6; padding: 0 1rem;">The vision encoder confuses similar red objects under mixed lighting, causing target identification error.</p> 
+            </div>
+        </div>
+        
+        <!-- Second row: 2 videos -->
+        <div class="columns is-centered" style="margin-bottom: 3rem;">
+            <div class="column is-7" style="margin: 0 0.3rem;"> 
+                <div style="position: relative;">
+                    <figure class="image" style="margin-bottom: 0.3rem;"> 
+                        <video controls muted loop preload="metadata" autoplay class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 780px;">
+                            <source src="assets/moive/fail case/3.mp4" type="video/mp4">
+                            您的浏览器不支持视频标签。
+                        </video>
+                    </figure>
+                    <div style="position: absolute; top: 15px; right: 15px; background: transparent; color: black; padding: 0.2rem 0.6rem; border-radius: 15px; font-size: 1.5rem; font-weight: bold; text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;">
+                        ×2
+                    </div>
+                </div>
+                <p class="has-text-centered" style="font-size: 1.2rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Grasp Instability from Inaccurate Contact Modeling</p>
+                <p class="has-text-centered" style="font-size: 1.0rem; font-weight: 400; color: #666; margin-top: 0.8rem; line-height: 1.6; padding: 0 1rem;">The grasp lacks sufficient frictional stability or normal force, leading to slippage.</p>
+            </div>
+            <div class="column is-7" style="margin: 0 0.3rem;"> 
+                <div style="position: relative;">
+                    <figure class="image" style="margin-bottom: 0.3rem;"> 
+                        <video controls muted loop preload="metadata" autoplay class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 780px;">
+                            <source src="assets/moive/fail case/6.mp4" type="video/mp4">
+                            您的浏览器不支持视频标签。
+                        </video>
+                    </figure>
+                    <div style="position: absolute; top: 15px; right: 15px; background: transparent; color: black; padding: 0.2rem 0.6rem; border-radius: 15px; font-size: 1.5rem; font-weight: bold; text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;">
+                        ×2
+                    </div>
+                </div>
+                <p class="has-text-centered" style="font-size: 1.2rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Bimanual Coordination Failure</p>
+                <p class="has-text-centered" style="font-size: 1.0rem; font-weight: 400; color: #666; margin-top: 0.8rem; line-height: 1.6; padding: 0 1rem;">Desynchronized joint trajectories between the two manipulators result in torque imbalance and object tilt.</p> 
+            </div>
+        </div>
+
+        <!-- Third row: 2 videos -->
+        <div class="columns is-centered" style="margin-bottom: 3rem;">
+            <div class="column is-7" style="margin: 0 0.3rem;"> 
+                <div style="position: relative;">
+                    <figure class="image" style="margin-bottom: 0.3rem;"> 
+                        <video controls muted loop preload="metadata" autoplay class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 780px;">
+                            <source src="assets/moive/fail case/4.mp4" type="video/mp4">
+                            您的浏览器不支持视频标签。
+                        </video>
+                    </figure>
+                    <div style="position: absolute; top: 15px; right: 15px; background: transparent; color: black; padding: 0.2rem 0.6rem; border-radius: 15px; font-size: 1.5rem; font-weight: bold; text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;">
+                        ×2
+                    </div>
+                </div>
+                <p class="has-text-centered" style="font-size: 1.2rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Pose Drift and Accumulated Alignment Error</p>
+                <p class="has-text-centered" style="font-size: 1.0rem; font-weight: 400; color: #666; margin-top: 0.8rem; line-height: 1.6; padding: 0 1rem;">Small initial orientation deviation propagates across sequential steps, causing final assembly failure.</p>
+            </div>
+            <div class="column is-7" style="margin: 0 0.3rem;"> 
+                <div style="position: relative;">
+                    <figure class="image" style="margin-bottom: 0.3rem;"> 
+                        <video controls muted loop preload="metadata" autoplay class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: 780px;">
+                            <source src="assets/moive/fail case/5.mp4" type="video/mp4">
+                            您的浏览器不支持视频标签。
+                        </video>
+                    </figure>
+                    <div style="position: absolute; top: 15px; right: 15px; background: transparent; color: black; padding: 0.2rem 0.6rem; border-radius: 15px; font-size: 1.5rem; font-weight: bold; text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;">
+                        ×2
+                    </div>
+                </div>
+                <p class="has-text-centered" style="font-size: 1.2rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Workspace Boundary Violation</p>
+                <p class="has-text-centered" style="font-size: 1.0rem; font-weight: 400; color: #666; margin-top: 0.8rem; line-height: 1.6; padding: 0 1rem;">The target lies beyond feasible workspace, leading to joint saturation.</p> 
+            </div>
+        </div>
+        
+    </div>
+</section>
 
 
 <!-- Footer -->
