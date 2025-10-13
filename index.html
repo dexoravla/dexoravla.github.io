@@ -1699,7 +1699,7 @@
 <!-- START: Fail Cases -->
 <section class="section hero is-light">
     <div class="container">
-        <h3 class="title is-3 has-text-centered"> Fail Cases </h3>
+        <h3 class="title is-3 has-text-centered"> Failure Cases </h3>
         <div class="section-caption" style="text-align: left;">
             Despite the overall robustness of Dexora-VLA, certain failure cases reveal fundamental challenges in semantic grounding, physical interaction modeling, and cross-arm coordination. These examples highlight open problems in large-scale Vision–Language–Action learning for high-DoF bimanual manipulation.
         </div> 
@@ -1718,7 +1718,7 @@
                     </div>
                 </div>
                 <p class="has-text-centered" style="font-size: 1.2rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Semantic Misgrounding due to Instruction Ambiguity</p>
-                <p class="has-text-centered" style="font-size: 1.0rem; font-weight: 400; color: #666; margin-top: 0.8rem; line-height: 1.6; padding: 0 1rem;">The language-conditioned policy misinterprets the referent ("smal bowl" vs. "big bowl"), leading to incorrect target selection.</p>
+                <p class="has-text-centered" style="font-size: 1.0rem; font-weight: 400; color: #666; margin-top: 0.8rem; line-height: 1.6; padding: 0 1rem;">The language-conditioned policy misinterprets the instruction “put the apple into the bowl”, confusing the referent ("smal bowl" vs. "big bowl")), and thus selects the incorrect target for placement.</p>
             </div>
             <div class="column is-7" style="margin: 0 0.3rem;"> 
                 <div style="position: relative;">
@@ -1733,7 +1733,7 @@
                     </div>
                 </div>
                 <p class="has-text-centered" style="font-size: 1.2rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Visual Misclassification under Object Similarity</p>
-                <p class="has-text-centered" style="font-size: 1.0rem; font-weight: 400; color: #666; margin-top: 0.8rem; line-height: 1.6; padding: 0 1rem;">The vision encoder confuses similar red objects under mixed lighting, causing target identification error.</p> 
+                <p class="has-text-centered" style="font-size: 1.0rem; font-weight: 400; color: #666; margin-top: 0.8rem; line-height: 1.6; padding: 0 1rem;">The vision encoder, when executing the instruction “put the red apple into the bowl”, confuses visually similar red objects (apple vs. tomato) under mixed lighting, causing a target identification error.</p> 
             </div>
         </div>
         
@@ -1751,7 +1751,7 @@
                         ×2
                     </div>
                 </div>
-                <p class="has-text-centered" style="font-size: 1.2rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Grasp Instability from Inaccurate Contact Modeling</p>
+                <p class="has-text-centered" style="font-size: 1.2rem; font-weight: 500; color: #363636; margin-top: 0.2rem;">Grasp Instability </p>
                 <p class="has-text-centered" style="font-size: 1.0rem; font-weight: 400; color: #666; margin-top: 0.8rem; line-height: 1.6; padding: 0 1rem;">The grasp lacks sufficient frictional stability or normal force, leading to slippage.</p>
             </div>
             <div class="column is-7" style="margin: 0 0.3rem;"> 
