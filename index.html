@@ -592,6 +592,7 @@
 </section>
 
 
+
 <!-- START: New Section for Scenario Assets -->
 <section class="section hero is-light">
     <div class="container">
@@ -606,7 +607,26 @@
                     </video>
                 </figure>
                 <p class="content" style="margin-top: 0.1em; font-size: 1.1rem; text-align: left; color: #4a4a4a;">
-                    The operator teleoperates the physical robot and its MujoCo digital twin, so apple→plate demonstrations are collected in real and simmulation under the same interface, thereby reducing the sim-to-real gap.
+                    The operator teleoperates the physical robot and its MujoCo digital twin, so apple→plate demonstrations are collected in real and simulation under the same interface, thereby reducing the sim-to-real gap.
+                </p>
+            </div>
+        </div>
+
+        <div class="columns is-centered" style="margin-bottom: 3rem;">
+            <div class="column is-10">
+                <div style="position: relative;">
+                    <figure class="image">
+                        <video controls muted loop preload="metadata" autoplay class="interactive-image" style="width: 100%; height: auto; border-radius: 12px; max-height: none;">
+                            <source src="assets/moive/telepreation/tele.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </figure>
+                    <div style="position: absolute; top: 15px; right: 15px; background: transparent; color: black; padding: 0.2rem 0.6rem; border-radius: 15px; font-size: 2rem; font-weight: bold; text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;">
+                        ×1
+                    </div>
+                </div>
+                <p class="content" style="margin-top: 0.1em; font-size: 1.1rem; text-align: left; color: #4a4a4a;">
+                    <b>Low-latency teleoperation demonstration:</b> This video presents a rapid teleoperation scenario, where the human operator performs fast, abrupt motions to evaluate the system's end-to-end responsiveness. The robot's real-time tracking of the operator's movements highlights the extremely low latency of our teleoperation pipeline. Quantitative analysis shows the system achieves an average end-to-end delay of only <b>11 ms</b>, enabling highly responsive and precise manipulation even under aggressive teleoperation conditions.
                 </p>
             </div>
         </div>
