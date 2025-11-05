@@ -36,19 +36,21 @@
   <!-- Custom CSS for Template -->
   <style>
     :root {
-      --primary-color: #3273dc; /* Bulma's default blue */
-      --text-color: #363636;
-      --background-color: #ffffff;
-      --light-background-color: #f5f5f5;
+    --primary-color: #3273dc; /* Bulma's default blue */
+    /* Dark theme variables */
+    --text-color: #e5e7eb;              /* slate-200 */
+    --background-color: #080808;        /* near-black, deep blue-black */
+    --light-background-color: #0b0b0b;  /* slate-900 for panels */
     }
     html {
       scroll-behavior: smooth;
     }
-    body {
-      font-family: 'Inter', sans-serif;
-      color: var(--text-color);
-      line-height: 1.6;
-    }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--background-color);
+        }
     .publication-title {
       font-weight: 800;
       font-size: 2.5rem;
@@ -63,9 +65,9 @@
     .publication-links .link-block {
       margin: 0.5rem;
     }
-    .footer {
-      background-color: var(--light-background-color);
-    }
+        .footer {
+            background-color: var(--light-background-color);
+        }
     .bibtex-header {
       display: flex;
       justify-content: space-between;
@@ -178,7 +180,7 @@
         content: "";
         width: 80px;
         height: 1px;
-        background: #ffffff;
+        background: #334155; /* slate-700 in dark */
         position: relative;
         display: inline-block;
         top: -2px;
@@ -219,8 +221,8 @@
         -webkit-justify-content: center;
         -ms-flex-pack: center;
         justify-content: center;
-        color: #3c88e7;
-        background: #f4f5f9;
+        color: #60a5fa;            /* lighter blue on dark */
+        background: #000000;       /* black circle background */
         height: 60px;
         width: 60px;
         border-radius: 50px;
@@ -236,7 +238,7 @@
         top: 50px;
         width: 50%;
         height: 500px;
-        background: #fff;
+        background: var(--background-color);
         -webkit-transform: skew(0deg, 8deg);
         transform: skew(0deg, 8deg);
         z-index: 0; }
@@ -247,7 +249,7 @@
         top: 50px;
         width: 50%;
         height: 500px;
-        background: #fff;
+        background: var(--background-color);
         -webkit-transform: skew(0deg, -8deg);
         transform: skew(0deg, -8deg);
         z-index: 0; }
@@ -266,19 +268,51 @@
         max-width: 1000px; /* 适当加宽以适应段落 */
         margin: 2rem auto 3rem auto; /* 增加垂直间距 */
         padding: 1.75rem 2.25rem; /* 增加内部空间 */
-        background-color: #fff; /* 干净的白色背景 */
-        border: 1px solid #e5e7eb; /* 柔和的灰色边框 */
+        background-color: #0f172a; /* 暗色卡片背景 */
+        border: 1px solid #334155; /* 暗色边框 */
         border-radius: 16px; /* 更圆润的边角 */
         font-size: 1.15rem; /* 调整字体大小 */
-        color: #374151; /* 柔和的深灰色字体 */
+        color: #e5e7eb; /* 亮色字体 */
         font-weight: 400; /* 标准字重 */
         line-height: 1.75; /* 提高行高以增强可读性 */
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05); /* 更细腻的阴影 */
+        box-shadow: 0 6px 16px -2px rgba(0, 0, 0, 0.35), 0 2px 6px -2px rgba(0, 0, 0, 0.25); /* 深色更明显但柔和的阴影 */
     }
 
     .section-caption b {
-        color: #1f2937; /* 加粗文字颜色加深 */
+        color: #f3f4f6; /* 加粗文字在暗色下更亮 */
         font-weight: 600; /* 明确字重 */
+    }
+
+    /* 暗色主题：图片边框与阴影调整 */
+    .result-image {
+        border: 1px solid #2a2f3a;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.6);
+    }
+
+    /* 暗色主题：链接与文本颜色覆盖（含 !important 以压过内联浅色文本） */
+    a { color: #93c5fd; }
+    a:hover { color: #bfdbfe; }
+    p, .content, .has-text-centered, .title, .subtitle, .section .title, .section .subtitle {
+        color: var(--text-color) !important;
+    }
+
+    /* 暗色主题：Bulma 浅色英雄区覆盖为深色 */
+    .hero.is-light, .section.hero.is-light {
+        background-color: var(--light-background-color);
+        color: var(--text-color);
+    }
+    .hero.is-light .title, .hero.is-light .subtitle, .hero.is-light .content {
+        color: var(--text-color) !important;
+    }
+
+    /* 暗色主题：页脚文本与链接颜色 */
+    .footer { color: #94a3b8; }
+    .footer a { color: #93c5fd; }
+
+    /* 暗色主题：媒体角标覆盖（×2/×4 等），覆盖内联黑色文本 */
+    figure.image + div {
+        color: #f8fafc !important; /* 亮色文字 */
+        text-shadow: -1px -1px 0 #0b0f14, 1px -1px 0 #0b0f14, -1px 1px 0 #0b0f14, 1px 1px 0 #0b0f14 !important; /* 深色描边提升对比 */
     }
     
     /* END: 新增的图片悬浮效果CSS */
